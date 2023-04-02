@@ -62,15 +62,21 @@ class _customState extends State<custom> {
               height: 60,
             ),
             TextField(
+              keyboardType: TextInputType.number,
               controller: _textcontroller,
               decoration: InputDecoration(
                 hintText: 'Enter a number of dice 1 to 6.',
-                border: OutlineInputBorder(),
+                border: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.teal)
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(width: 2, color: Colors.teal),
+                ),
                 suffixIcon: IconButton(
                     onPressed: (){
                       _textcontroller.clear();
                     },
-                    icon: Icon(Icons.clear),
+                    icon: Icon(Icons.clear,color: Colors.teal,),
 
                 ),
 
@@ -78,13 +84,14 @@ class _customState extends State<custom> {
             ),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.teal,
+                //backgroundColor: Colors.teal,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.all(Radius.circular(20)),
                 ),
               ),
               onPressed: (){
                 setState(() {
+                  FocusManager.instance.primaryFocus?.unfocus();
                   usernum=_textcontroller.text;
                 });
               },
@@ -100,7 +107,7 @@ class _customState extends State<custom> {
             ),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.teal,
+                //backgroundColor: Colors.teal,
                 elevation: 10,
                 shadowColor: Colors.teal,
                 padding: EdgeInsets.symmetric(
@@ -112,6 +119,7 @@ class _customState extends State<custom> {
                 ),
               ),
               onPressed: (){
+                FocusManager.instance.primaryFocus?.unfocus();
                 if(usernum=='1'){
                   Navigator.push(context, MaterialPageRoute(builder: (context)=>dice_1()));
                 }

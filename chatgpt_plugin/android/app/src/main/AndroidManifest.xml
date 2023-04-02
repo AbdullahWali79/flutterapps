@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.chatgpt_plugin">
+    package="com.diceroller.chatgpt_plugin">
    <application
         android:label="chatgpt_plugin"
         android:name="${applicationName}"

@@ -32,7 +32,7 @@ class _dice_2State extends State<dice_2> with SingleTickerProviderStateMixin{
 
   animate(){
     _controller= AnimationController(duration: Duration(seconds: 1),vsync: this);
-    animation= CurvedAnimation(parent: _controller, curve: Curves.bounceInOut);
+    animation= CurvedAnimation(parent: _controller, curve: Curves.easeInBack);
     animation.addListener(() {setState(() {
 
     });print(_controller.value);});
@@ -67,80 +67,82 @@ class _dice_2State extends State<dice_2> with SingleTickerProviderStateMixin{
         elevation: 10,
         shadowColor: Colors.teal,
       ),
-      body: Column(
-        children: [
-          SizedBox(
-             height: 10,
-          ),
-          Container(
-            height: 250,
-            width: 300,
-            child: Row(
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            SizedBox(
+               height: 10,
+            ),
+            Container(
+              height: 250,
+              width: 300,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: Image(height: 100-(animation.value)*100,
+                        image: AssetImage('images/dice$a.png',)
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: Image(height: 100-(animation.value)*100,
+                        image: AssetImage('images/dice$b.png',)
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(
+              height: 180,
+            ),
+            Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: Image(height: 100-(animation.value)*100,
-                      image: AssetImage('images/dice$a.png',)
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: Image(height: 100-(animation.value)*100,
-                      image: AssetImage('images/dice$b.png',)
-                  ),
-                ),
-              ],
-            ),
-          ),
-          SizedBox(
-            height: 180,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text("Total: ",
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 25,
-                ),
-              ),
-              Chip(label: Text("$tvalue",
+                Text("Total: ",
                   style: TextStyle(
-                    color: Colors.white,
                     fontWeight: FontWeight.bold,
                     fontSize: 25,
                   ),
                 ),
-                backgroundColor: Colors.teal,
-              ),
-            ],
-          ),
-          SizedBox(
-            height: 80,
-          ),
-          ElevatedButton(
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.teal,
-              elevation: 10,
-              shadowColor: Colors.teal,
-              padding: EdgeInsets.symmetric(
-                horizontal: 140,
-                vertical: 13,
-              ),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.all(Radius.circular(30)),
-              ),
+                Chip(label: Text("$tvalue",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 25,
+                    ),
+                  ),
+                  backgroundColor: Colors.teal,
+                ),
+              ],
             ),
-            onPressed: roll,
-            child: Text("Roll",style: TextStyle(
-              color: Colors.white,
-              fontWeight: FontWeight.bold,
-              fontSize: 30,
-            ),),
+            SizedBox(
+              height: 80,
+            ),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                //backgroundColor: Colors.teal,
+                elevation: 10,
+                shadowColor: Colors.teal,
+                padding: EdgeInsets.symmetric(
+                  horizontal: 140,
+                  vertical: 13,
+                ),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(30)),
+                ),
+              ),
+              onPressed: roll,
+              child: Text("Roll",style: TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+                fontSize: 30,
+              ),),
 
-          ),
-        ],
+            ),
+          ],
+        ),
       ),
     );
   }
