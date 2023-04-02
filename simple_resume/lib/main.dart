@@ -34,7 +34,7 @@ class Resumeapp extends StatelessWidget {
               child: Card(
                 margin: EdgeInsets.all(9),
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(30)),
+                  borderRadius: BorderRadius.all(Radius.circular(10)),
                 ),
                 child: Row(
                   children: [
@@ -105,7 +105,7 @@ class Resumeapp extends StatelessWidget {
             ),
             Card(
               shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.all(Radius.circular(30)),
+                borderRadius: BorderRadius.all(Radius.circular(20)),
               ),
               margin: EdgeInsets.all(10),
               child: IntrinsicHeight(
@@ -383,7 +383,7 @@ class Resumeapp extends StatelessWidget {
                     ),
                     VerticalDivider(
                       color: Colors.indigoAccent,
-                      thickness: 2,
+                      thickness: 5,
                     ),
                     Expanded(
                       child: Column(
