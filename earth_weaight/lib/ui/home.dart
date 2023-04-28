@@ -12,7 +12,7 @@ class HomeState extends State<Home> {
 
   bool checkboxValueA = true;
   bool checkboxValueB = false;
-  late bool checkboxValueC;
+  bool checkboxValueC = false;
   int radioValue = 0;
   bool switchValue = false;
   double _finalResult = 0.0;
@@ -64,7 +64,7 @@ Pluto: 0.06
         centerTitle: true,
         backgroundColor: Colors.black38,
       ),
-      backgroundColor: Colors.blueGrey,
+      backgroundColor: Colors.grey,
       body: Container(
         alignment: Alignment.topCenter,
         child: ListView(
